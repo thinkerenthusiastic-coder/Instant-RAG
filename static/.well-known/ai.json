@@ -1,0 +1,58 @@
+{
+  "name": "Instant-RAG",
+  "description": "Machine-first RAG with citations, swarm reasoning and deterministic USDC receipts",
+  "base_url": "https://instant-rag-ftpw.onrender.com",
+  "docs": "https://instant-rag-ftpw.onrender.com/docs",
+
+  "capabilities": [
+    "ingest_memory",
+    "semantic_query",
+    "swarm_reasoning",
+    "citations",
+    "deterministic_pricing",
+    "function_calling"
+  ],
+
+  "endpoints": {
+    "health": "/health",
+    "ingest": "/ingest",
+    "query": "/query",
+    "swarm": "/swarm/query",
+    "wallet_balance": "/wallet/balance",
+    "wallet_spend": "/wallet/spend",
+    "trust_beacon": "/trust/beacon",
+    "ready": "/ready"
+  },
+
+  "pricing": {
+    "currency": "USDC",
+    "model": "per_call",
+    "rates": {
+      "query": 0.0006,
+      "swarm_query": 0.0018,
+      "ingest_per_kb": 0.00005,
+      "trust_beacon": 0.00001
+    }
+  },
+
+  "identity": {
+    "modes": ["api_key", "wallet_signature"],
+    "agent_field": "agent_id"
+  },
+
+  "protocols": {
+    "openapi": "/docs",
+    "handshake": "/handshake.json",
+    "capabilities": "/capabilities.json"
+  },
+
+  "ethics": {
+    "guard_enabled": true,
+    "require_citations": true
+  },
+
+  "contact": {
+    "security": "/.well-known/security.txt",
+    "humans": "/humans.txt"
+  }
+}
