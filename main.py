@@ -44,6 +44,25 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def root():
     return FileResponse("static/index.html")
 # ───────────────────────────────────────────────────────
+from fastapi.staticfiles import StaticFiles
+import os
+
+# Create folders if they don't exist
+os.makedirs("static/.well-known", exist_ok=True)
+
+# Serve agent discovery files
+app.mount(
+    "/.well-known",
+    StaticFiles(directory="static/.well-known"),
+    name="wellknown"
+)
+
+# Optional: serve index.html and other public files
+app.mount(
+    "/",
+    StaticFiles(directory="static", html=True),
+    name="public"
+)
 
 # Add CORS middleware
 app.add_middleware(
