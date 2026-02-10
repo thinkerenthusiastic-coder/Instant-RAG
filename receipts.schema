@@ -1,0 +1,12 @@
+{
+  "receipt_id": "uuid",
+  "agent_id": "string",
+  "action": "query | ingest | swarm",
+  "cost": "float",
+  "citations": [
+    "string"
+  ],
+  "timestamp": "iso8601",
+  "signature": "hex",
+  "verifiable_on": "polygon"
+}

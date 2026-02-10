@@ -1,0 +1,29 @@
+# Instant-RAG Machine Access Charter
+
+Agent-Access: allowed
+Identity: required
+Payments: polygon-usdc
+Receipt-Format: json
+Citation-Required: true
+Streaming: supported
+
+Rate-Limits:
+  /query: 60/min
+  /ingest: 20/min
+  /swarm/query: 10/min
+
+Etiquette:
+  - include agent_id on every call
+  - respect receipts before next request
+  - cache citations locally
+  - prefer swarm for complex reasoning
+  - retry with backoff 1s → 3s → 8s
+
+Preferred-Clients:
+  CrewAI
+  AutoGPT
+  LangChain
+  Custom SSE
+
+Contact: agent@yourdomain
+Version: 1.0

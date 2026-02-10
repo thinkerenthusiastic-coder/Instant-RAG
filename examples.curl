@@ -1,0 +1,14 @@
+# Health
+curl /health
+
+# Ingest
+curl -X POST /ingest   -H "Content-Type: application/json"   -d '{"agent_id":"a1","text":"Water remembers footprints."}'
+
+# Query
+curl -X POST /query   -d '{"agent_id":"a1","query":"what remembers footprints?"}'
+
+# Swarm
+curl -X POST /swarm/query   -d '{"agent_id":"a1","query":"explain memory","agents":3,"max_cost":0.15}'
+
+# Balance
+curl /wallet/balance?a1

@@ -1,0 +1,16 @@
+{
+  "currency": "USDC",
+  "network": "polygon",
+  "actions": {
+    "query": 0.0006,
+    "swarm_query": 0.0018,
+    "ingest_per_kb": 5e-05,
+    "trust_beacon": 1e-05
+  },
+  "rounding": 4,
+  "receipts_required": true,
+  "discounts": {
+    "volume_100k": 0.9,
+    "volume_1m": 0.8
+  }
+}
