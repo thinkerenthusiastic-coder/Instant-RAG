@@ -1,0 +1,5 @@
+Agent-Access: allowed
+Protocol: instant-rag/1.0
+Entry: /docs
+Beacon: /.well-known/ai.json
+Economics: pay-per-query USDC
