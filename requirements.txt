@@ -6,7 +6,6 @@ pydantic==2.5.0
 
 # ML & Embeddings - Core dependencies
 # Replace this line in requirements.txt:
-sentence-transformers==2.2.2
 
 # With these two lines:
 sentence-transformers==2.7.0
