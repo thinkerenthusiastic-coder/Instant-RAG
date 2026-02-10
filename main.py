@@ -29,6 +29,21 @@ app = FastAPI(
     description="Production-ready multi-tenant RAG system",
     version="1.0.0"
 )
+# ─── Public Landing Page ───────────────────────────────
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
+# Ensure static directory exists
+if not os.path.exists("static"):
+    os.makedirs("static", exist_ok=True)
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+async def root():
+    return FileResponse("static/index.html")
+# ───────────────────────────────────────────────────────
 
 # Add CORS middleware
 app.add_middleware(
