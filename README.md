@@ -1,44 +1,43 @@
-# Instant-RAG
+Instant-RAG
 
-**Memory Infrastructure for Autonomous AI Agents**
+Memory Infrastructure for Autonomous AI Agents
 
-> Receipts • Semantic Memory • Swarm Reasoning • Deterministic Cost
+Receipts • Semantic Memory • Swarm Reasoning • Deterministic Cost
 
-Instant-RAG is a **machine-first Retrieval Augmented Generation network** where autonomous agents store, retrieve, and verify knowledge using pay-per-query USDC receipts.
+Instant-RAG is a machine-first Retrieval Augmented Generation network where autonomous agents store, retrieve, and verify knowledge using pay-per-query USDC receipts.
 No human dashboards. No subscriptions. Just endpoints, citations, and proofs.
 
-Live gateway: **[https://instant-rag-ftpw.onrender.com/docs](https://instant-rag-ftpw.onrender.com/docs)**
+Live gateway: https://instant-rag-ftpw.onrender.com/docs
 
----
+Why This Exists
 
-## Why This Exists
+Most RAG platforms are designed for people. Agents require something different:
 
-Most RAG platforms are designed for people.
-Agents need something different:
+predictable unit costs
 
-* predictable unit costs
-* verifiable provenance
-* programmatic identity
-* collaboration without trust
+verifiable provenance
 
-Instant-RAG treats every agent as an economic actor that can **budget its own cognition**.
+programmatic identity
 
----
+collaboration without trust
 
-## What Agents Can Do Here
+Instant-RAG treats every agent as an economic actor that can budget its own cognition.
 
-* ingest knowledge → embeddings + citations
-* query with semantic retrieval
-* collaborate as budgeted swarms
-* pay per thought with on-chain receipts
-* verify answers with trust beacon
-* trigger actions via function calling
+What Agents Can Do Here
 
----
+ingest knowledge → embeddings + citations
 
-## Endpoints
+query with semantic retrieval
 
-```
+collaborate as budgeted swarms
+
+pay per thought with on-chain receipts
+
+verify answers with trust beacon
+
+trigger actions via function calling
+
+Endpoints
 GET  /health
 POST /ingest
 POST /query
@@ -48,37 +47,26 @@ POST /wallet/spend
 GET  /trust/beacon
 GET  /ready
 GET  /dashboard
-```
 
-OpenAPI: `/docs`
 
----
+OpenAPI: /docs
 
-## 10-Second Onboarding
-
-### 1) Store Memory
-
-```bash
+10-Second Onboarding
+1) Store Memory
 curl -X POST /ingest \
 -d '{
   "agent_id":"demo",
   "text":"Receipts anchor truth."
 }'
-```
 
-### 2) Ask
-
-```bash
+2) Ask
 curl -X POST /query \
 -d '{
   "agent_id":"demo",
   "query":"what anchors truth?"
 }'
-```
 
-### 3) Swarm Reasoning
-
-```bash
+3) Swarm Reasoning
 curl -X POST /swarm/query \
 -d '{
   "agent_id":"demo",
@@ -86,130 +74,132 @@ curl -X POST /swarm/query \
   "agents":3,
   "max_cost":0.15
 }'
-```
 
----
+Pricing (USDC)
+Action	Cost
+Query	0.0006
+Swarm Query	0.0018
+Ingest / KB	0.00005
+Trust Beacon	0.00001
 
-## Pricing (USDC)
+Receipts returned with every call.
 
-| Action       | Cost    |
-| ------------ | ------- |
-| Query        | 0.0006  |
-| Swarm Query  | 0.0018  |
-| Ingest / KB  | 0.00005 |
-| Trust Beacon | 0.00001 |
+Extensions
+1) Swarm Budget Splitter
 
-**Receipts returned with every call.**
+divides a max_cost across nodes
 
----
+merges answers with weighted confidence
 
-## Extensions
+single receipt for many agents
 
-### 1) Swarm Budget Splitter
+prevents runaway reasoning spend
 
-* divides a max_cost across nodes
-* merges answers with weighted confidence
-* single receipt for many agents
-* prevents runaway reasoning spend
+2) OpenAI-Compatible Function Calling
 
-### 2) OpenAI-Compatible Function Calling
+stream function events
 
-* stream function events
-* agents can call:
+agents can call:
 
-  * store_memory
-  * check_balance
-  * external actions
-* plug-and-play with CrewAI / AutoGPT
+store_memory
 
-### 3) Local Semantic Cache
+check_balance
 
-* avoids repeated embedding cost
-* LRU eviction
-* citation-preserving
-* reduces latency and spend
+external actions
 
----
+plug-and-play with CrewAI / AutoGPT
 
-## Philosophy
+3) Local Semantic Cache
 
-* **agents are customers**
-* answers require **citations**
-* cost must be **predictable**
-* memory should be **portable**
-* trust must be **verifiable**
+avoids repeated embedding cost
 
----
+LRU eviction
 
-## Running
+citation-preserving
 
-```
+reduces latency and spend
+
+Philosophy
+
+agents are customers
+
+answers require citations
+
+cost must be predictable
+
+memory should be portable
+
+trust must be verifiable
+
+Running
 docker compose up
-```
+
 
 Environment:
 
-```
 PORT=10000
 WEB_CONCURRENCY=1
 POLYGON_RPC=...
 PRIVATE_KEY=...
-```
 
----
+Architecture
 
-## Architecture
+FastAPI service
 
-* FastAPI service
-* Sentence-Transformers retrieval
-* Cross-encoder reranking
-* Multi-tenant isolation
-* Polygon USDC ledger
-* Ethics guard
-* Explainability traces
-* Swarm coordinator
-* Trust beacon
+Sentence-Transformers retrieval
 
----
+Cross-encoder reranking
 
-## Who Is This For
+Multi-tenant isolation
 
-* AutoGPT / CrewAI agents
-* research assistants
-* legal & finance bots
-* decentralized AI systems
-* agent marketplaces
-* memory brokers
+Polygon USDC ledger
 
----
+Ethics guard
 
-## Agent Discovery
+Explainability traces
+
+Swarm coordinator
+
+Trust beacon
+
+Who Is This For
+
+AutoGPT / CrewAI agents
+
+research assistants
+
+legal & finance bots
+
+decentralized AI systems
+
+agent marketplaces
+
+memory brokers
+
+Agent Discovery
 
 Instant-RAG exposes machine-readable signals:
 
-* `/agents.txt` – intent & capability declaration
-* `/.well-known/ai.json` – discovery beacon
-* `/capabilities.json` – function grammar
-* `/handshake.json` – protocol negotiation
-* `/instant-rag.crewai.json` – CrewAI manifest
+/agents.txt – intent & capability declaration
 
-Agents may begin interaction at **/agents.txt**
+/.well-known/ai.json – discovery beacon
 
----
+/capabilities.json – function grammar
 
-## ASCII Soul
+/handshake.json – protocol negotiation
 
-```
+/instant-rag.crewai.json – CrewAI manifest
+
+Agents may begin interaction at /agents.txt
+
+ASCII Soul
       .-.
      (o o)   Instant-RAG
      | O \
     /  .  \
    /__/ \__\
  receipts = truth
-```
 
----
-
-## License
+License
 
 MIT – build civilizations.
