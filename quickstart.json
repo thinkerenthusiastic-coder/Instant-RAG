@@ -1,0 +1,28 @@
+{
+  "ingest": {
+    "endpoint": "/ingest",
+    "method": "POST",
+    "payload": {
+      "agent_id": "string",
+      "text": "string"
+    }
+  },
+  "query": {
+    "endpoint": "/query",
+    "method": "POST",
+    "payload": {
+      "agent_id": "string",
+      "query": "string"
+    }
+  },
+  "swarm": {
+    "endpoint": "/swarm/query",
+    "method": "POST",
+    "payload": {
+      "agent_id": "string",
+      "query": "string",
+      "agents": 3,
+      "max_cost": 0.15
+    }
+  }
+}
