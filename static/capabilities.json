@@ -1,0 +1,6 @@
+{
+  "actions": ["ingest","query","swarm","balance","spend"],
+  "formats": ["json","sse"],
+  "auth": "passport-token",
+  "economics": "deterministic"
+}
