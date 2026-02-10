@@ -1,0 +1,42 @@
+{
+  "identity": "Instant-RAG",
+  "mode": "machine-first",
+  "protocol": "receipt-anchored-rag",
+  "functions": {
+    "semantic_query": {
+      "input": [
+        "text",
+        "agent_id"
+      ],
+      "output": [
+        "answer",
+        "citations",
+        "confidence"
+      ]
+    },
+    "ingest": {
+      "input": [
+        "document"
+      ],
+      "output": [
+        "chunks",
+        "receipt"
+      ]
+    },
+    "swarm_query": {
+      "input": [
+        "text",
+        "agents",
+        "max_cost"
+      ],
+      "output": [
+        "merged_answer",
+        "confidence"
+      ]
+    }
+  },
+  "pricing": {
+    "query": 0.0006,
+    "swarm": 0.0018
+  }
+}

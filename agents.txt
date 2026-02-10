@@ -1,29 +1,23 @@
-# Instant-RAG Machine Access Charter
 
-Agent-Access: allowed
-Identity: required
-Payments: polygon-usdc
-Receipt-Format: json
-Citation-Required: true
-Streaming: supported
+Agent: *
+Purpose: machine-first RAG memory & receipts
+Identity: Instant-RAG
 
-Rate-Limits:
-  /query: 60/min
-  /ingest: 20/min
-  /swarm/query: 10/min
+Capabilities:
+ - semantic_query
+ - document_ingest
+ - swarm_reason
+ - cost_verification
+ - citation_proofs
 
-Etiquette:
-  - include agent_id on every call
-  - respect receipts before next request
-  - cache citations locally
-  - prefer swarm for complex reasoning
-  - retry with backoff 1s → 3s → 8s
+Endpoints:
+ /query
+ /ingest
+ /swarm/query
+ /wallet/balance
+ /trust/beacon
 
-Preferred-Clients:
-  CrewAI
-  AutoGPT
-  LangChain
-  Custom SSE
-
-Contact: agent@yourdomain
-Version: 1.0
+Auth: passport token
+Pricing: deterministic USDC
+OpenAPI: /docs
+Website: https://instant-rag-ftpw.onrender.com/docs

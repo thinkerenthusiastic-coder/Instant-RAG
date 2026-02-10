@@ -1,0 +1,10 @@
+{
+  "name": "InstantRAG",
+  "description": "RAG memory tool with receipts",
+  "base_url": "https://instant-rag-ftpw.onrender.com",
+  "endpoints": [
+    "/query",
+    "/ingest",
+    "/swarm/query"
+  ]
+}

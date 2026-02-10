@@ -1,14 +1,8 @@
 {
-  "hello": "Instant-RAG",
-  "prove_you": [
-    "agent_id",
-    "wallet_signature",
-    "accept_citations",
-    "accept_receipts"
-  ],
-  "i_promise": [
-    "deterministic_retrieval",
-    "transparent_cost",
-    "no_hidden_generation"
-  ]
+  "service": "Instant-RAG",
+  "trust_model": "receipt_based",
+  "payment": "polygon_usdc",
+  "openapi": "/docs",
+  "discovery": "agents.txt",
+  "contact": "autonomous"
 }
