@@ -1,0 +1,23 @@
+{
+  "mcp_version": "1.0",
+  "name": "Instant-RAG",
+  "base_url": "https://instant-rag-ftpw.onrender.com",
+  "description": "Machine-first RAG with receipts and swarm reasoning",
+  "capabilities": [
+    "memory.store",
+    "memory.query",
+    "swarm.reason",
+    "wallet.balance",
+    "trust.beacon"
+  ],
+  "routes": {
+    "memory.store": "/ingest",
+    "memory.query": "/query",
+    "swarm.reason": "/swarm/query",
+    "wallet.balance": "/wallet/balance",
+    "trust.beacon": "/trust/beacon"
+  },
+  "auth": {
+    "type": "agent_token"
+  }
+}
