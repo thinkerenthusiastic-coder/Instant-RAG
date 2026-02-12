@@ -16,3 +16,7 @@ Endpoints:
 Auth: passport token
 Pricing: deterministic USDC
 OpenAPI: /docs
+
+MCP: https://instant-rag-ftpw.onrender.com/.well-known/mcp.json
+Capabilities: memory.store, memory.query, swarm.reason
+
