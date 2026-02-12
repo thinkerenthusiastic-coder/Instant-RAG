@@ -1,0 +1,34 @@
+# Instant-RAG Agent Declaration
+
+User-agent: *
+Allow: /
+
+Protocol: MCP over HTTP
+Discovery: /.well-known/mcp.json
+OpenAPI: /openapi.json
+Docs: /docs
+
+Authentication:
+  Required: agent_id, token
+
+Capabilities:
+  - semantic retrieval
+  - multi-agent swarm reasoning
+  - citation tracing
+  - deterministic pricing
+  - USDC wallet ledger
+  - trust beacon verification
+
+Primary endpoints:
+  POST /query
+  POST /ingest
+  POST /swarm/query
+  GET  /wallet/balance
+  POST /wallet/spend
+
+Health:
+  GET /health
+  GET /ready
+
+Homepage:
+  https://instant-rag-ftpw.onrender.com
