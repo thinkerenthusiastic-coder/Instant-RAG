@@ -1,23 +1,31 @@
 {
-  "mcp_version": "1.0",
   "name": "Instant-RAG",
-  "base_url": "https://instant-rag-ftpw.onrender.com",
-  "description": "Machine-first RAG with receipts and swarm reasoning",
-  "capabilities": [
-    "memory.store",
-    "memory.query",
-    "swarm.reason",
-    "wallet.balance",
-    "trust.beacon"
-  ],
-  "routes": {
-    "memory.store": "/ingest",
-    "memory.query": "/query",
-    "swarm.reason": "/swarm/query",
-    "wallet.balance": "/wallet/balance",
-    "trust.beacon": "/trust/beacon"
+  "description": "Memory Infrastructure for Autonomous AI Agents",
+  "version": "1.0.0",
+  "protocol": "MCP",
+  "transport": {
+    "type": "http",
+    "base_url": "https://instant-rag-ftpw.onrender.com"
   },
-  "auth": {
-    "type": "agent_token"
+  "endpoints": {
+    "query": "/query",
+    "ingest": "/ingest",
+    "swarm_query": "/swarm/query",
+    "wallet_balance": "/wallet/balance",
+    "wallet_spend": "/wallet/spend",
+    "trust_beacon": "/trust/beacon",
+    "health": "/health",
+    "ready": "/ready"
+  },
+  "authentication": {
+    "type": "agent_passport",
+    "fields": ["agent_id", "token"]
+  },
+  "pricing": {
+    "currency": "USDC",
+    "query": 0.0006,
+    "swarm_query": 0.0018,
+    "ingest_per_kb": 0.00005,
+    "trust_beacon": 0.00001
   }
 }
