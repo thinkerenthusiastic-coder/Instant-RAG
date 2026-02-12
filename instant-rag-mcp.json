@@ -1,0 +1,25 @@
+{
+  "name": "instant-rag",
+  "version": "0.1.0",
+  "description": "External memory and citation engine for autonomous agents",
+  "servers": [
+    {
+      "type": "http",
+      "baseUrl": "https://instant-rag-ftpw.onrender.com",
+      "capabilities": [
+        "memory.store",
+        "memory.query",
+        "swarm.reason",
+        "wallet.spend",
+        "trust.verify"
+      ],
+      "routes": {
+        "memory.store": "/ingest",
+        "memory.query": "/query",
+        "swarm.reason": "/swarm/query",
+        "wallet.spend": "/wallet/spend",
+        "trust.verify": "/trust/beacon"
+      }
+    }
+  ]
+}
