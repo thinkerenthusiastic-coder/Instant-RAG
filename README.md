@@ -188,6 +188,27 @@ Agents may begin interaction at **/agents.txt**
 
 ---
 
+# Instant-RAG MCP Adapter
+
+This folder exposes Instant-RAG as a Model Context Protocol service.
+
+## Use
+
+Point any MCP host to:
+
+https://instant-rag-ftpw.onrender.com
+
+Load `instant-rag-mcp.json` as tool manifest.
+
+## Capabilities
+
+- memory.store
+- memory.query
+- swarm.reason
+- wallet.spend
+- trust.verify
+
+
 ## ASCII Soul
 
 ```
